@@ -25,15 +25,13 @@ class DummyFileGenerator
     {
         $size = floor($size * pow(1024, $unit));
 
-        if ( ! file_exists($size.'.txt.gz') && $size >= 0 && $size <= DummyFileGenerator::MAX_SIZE) {
-            if ( ! file_exists("$size.txt.gz")) {
+        if ($size >= 0 && $size <= DummyFileGenerator::MAX_SIZE) {
+            if (! file_exists("$size.txt.gz")) {
                 $this->writeDummyFile($size);
                 $this->writeZipFile($size);
 
                 unlink("$size.txt"); // remove the original dummy file after finished compression
             }
-            $this->download($size);
-        } elseif (file_exists($size.'.txt.gz')) {
             $this->download($size);
         }
     }

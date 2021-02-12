@@ -1,0 +1,23 @@
+image: docker:latest
+
+stages:
+  - lint
+  - tests
+
+run-lint:
+  tags:
+    - amd64
+  image: texthtml/phpcs:latest
+  stage: lint
+  script:
+    - phpcs --standard=PSR2 src/
+
+run-tests:
+  tags:
+    - amd64
+  image:
+    name: phpunit/phpunit:latest
+    entrypoint: [ "" ]
+  stage: tests
+  script:
+    - cd test && phpunit --no-configuration DummyFileGeneratorTest

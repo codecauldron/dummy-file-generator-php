@@ -1,0 +1,17 @@
+{
+  "name": "codecauldron/dummy-file-generator-php",
+  "description": "Dummy File Generator in PHP",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jimmie Moberg",
+      "email": "jimmie@moberg.io"
+    }
+  ],
+  "require": {
+    "phpunit/phpunit": "^9.5.2",
+    "ext-fileinfo": "*",
+    "ext-zlib": "*"
+  }
+}
